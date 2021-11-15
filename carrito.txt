@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "id": 1,
+    "timeStamp": "2021-11-15T23:10:04.772Z",
+    "producto": [
+      {
+        "nombre": "iPhone 12",
+        "descripcion": "Apple Iphone 12 mini 128 gb",
+        "codigo": "0001",
+        "precio": 5032123,
+        "foto": "https://i.blogs.es/35ef0d/iphone-12-pro-max-00-01/1366_2000.jpg",
+        "stock": 20,
+        "id": 1,
+        "timeStamp": "2021-11-15T21:58:01.190Z"
+      },
+      {
+        "nombre": "iPhone x",
+        "descripcion": "Apple Iphone x 128 gb",
+        "codigo": "0002",
+        "precio": 5032123,
+        "foto": "https://i.blogs.es/35ef0d/iphone-12-pro-max-00-01/1366_2000.jpg",
+        "stock": 10,
+        "id": 2,
+        "timeStamp": "2021-11-15T21:58:01.190Z"
+      }
+    ]
+  }
+]

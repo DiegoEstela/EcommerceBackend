@@ -22,7 +22,7 @@ router.get("/:id", async (req, res) => {
   res.send(data);
 });
 
-router.post("/save", async (req, res) => {
+router.post("/", async (req, res) => {
   if (req.query.admin === "admin") {
     await product.save(req.body);
     let nombreProduct = req.body.nombre;

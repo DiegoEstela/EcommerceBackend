@@ -3,8 +3,8 @@
     "nombre": "iPhone 12",
     "descripcion": "Apple Iphone 12 mini 128 gb",
     "codigo": "0001",
-    "foto": "https://i.blogs.es/35ef0d/iphone-12-pro-max-00-01/1366_2000.jpg",
     "precio": 5032123,
+    "foto": "https://i.blogs.es/35ef0d/iphone-12-pro-max-00-01/1366_2000.jpg",
     "stock": 20,
     "id": 1,
     "timeStamp": "2021-11-15T21:58:01.190Z"
@@ -13,8 +13,8 @@
     "nombre": "iPhone x",
     "descripcion": "Apple Iphone x  256 gb",
     "codigo": "0002",
-    "foto": "https://i.blogs.es/35ef0d/iphone-12-pro-max-00-01/1366_2000.jpg",
     "precio": 123321,
+    "foto": "https://i.blogs.es/35ef0d/iphone-12-pro-max-00-01/1366_2000.jpg",
     "stock": 14,
     "id": 2,
     "timeStamp": "2021-11-15T22:06:51.239Z"
