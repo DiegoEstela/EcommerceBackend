@@ -3,7 +3,7 @@ const fs = require("fs");
 //setear datos
 const setData = async (file, prod) => {
   try {
-    await fs.promises.writeFile(file, JSON.stringify(prod, null, "\t"));
+    await fs.promises.writeFile(file, JSON.stringify(prod, null, 2));
   } catch (err) {
     console.log(err);
   }
@@ -21,7 +21,7 @@ const obtData = async (file) => {
 };
 
 const borrarId = (data, id) => {
-  return data.find((item) => item.id === id);
+  return data.filter((item) => item.id != id);
 };
 
 //
@@ -53,7 +53,7 @@ class Contenedor {
     return await obtData(this.file);
   };
 
-  async update(id, arr) {
+  async update(id, prod) {
     let data = await obtData(this.file);
     let i;
     data.find((el, index) => {
@@ -63,12 +63,12 @@ class Contenedor {
       }
     });
 
-    fileData[i].nombre = prod.nombre;
-    fileData[i].descripcion = prod.descripcion;
-    fileData[i].codigo = prod.codigo;
-    fileData[i].foto = prod.foto;
-    fileData[i].precio = prod.precio;
-    fileData[i].stock = prod.stock;
+    data[i].nombre = prod.nombre;
+    data[i].descripcion = prod.descripcion;
+    data[i].codigo = prod.codigo;
+    data[i].foto = prod.foto;
+    data[i].precio = prod.precio;
+    data[i].stock = prod.stock;
     console.log(data);
     await setData(this.file, data);
   }
@@ -76,12 +76,8 @@ class Contenedor {
 
 deleteById = async (id) => {
   let data = await obtData(this.file);
-  if (data) {
-    let newData = await data.filter((item) => item.id !== id);
-    await setData(this.file, [newData]);
-  } else {
-    throw new Error(`no existe el id ${id}`);
-  }
+  let newData = borrarId(data, id);
+  setData(this.file, newData);
 };
 deleteAll = async () => {
   await setData(this.file, []);

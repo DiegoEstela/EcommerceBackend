@@ -17,25 +17,21 @@ router.get("/:id", async (req, res) => {
   res.send(data);
 });
 
-router.post("/", async (req, res) => {
-  let data = await product.save(req.body);
-  console.log(req.body);
-  res.send(data);
+router.post("/save", async (req, res) => {
+  await product.save(req.body);
+  let nombreProduct = req.body.nombre;
+  res.send(`Se guardo el producto ${nombreProduct}`);
 });
 
 router.put("/:id", async (req, res) => {
-  if (req.query.admin === "true") {
-    console.log(req.params.id);
-    console.log(req.body);
-    await product.update(req.params.id, req.body);
-    res.send("Producto actualizado con exito");
-  }
-  verificarAutorizacion(res);
+  await product.update(req.params.id, req.body);
+  res.send("Producto actualizado con exito");
 });
 
 router.delete("/:id", async (req, res) => {
   let id = parseInt(req.params.id);
   await product.deleteById(id);
+  res.send("Producto eliminado con exito");
 });
 
 module.exports = router;
