@@ -20,10 +20,6 @@ const obtData = async (file) => {
   }
 };
 
-const borrarId = (data, id) => {
-  return data.filter((item) => item.id != id);
-};
-
 //
 
 const today = new Date(Date.now());
@@ -72,15 +68,12 @@ class Contenedor {
     console.log(data);
     await setData(this.file, data);
   }
+  deleteById = async (objeto) => {
+    await setData(this.file, [...objeto]);
+  };
+  deleteAll = async () => {
+    await setData(this.file, []);
+  };
 }
-
-deleteById = async (id) => {
-  let data = await obtData(this.file);
-  let newData = borrarId(data, id);
-  setData(this.file, newData);
-};
-deleteAll = async () => {
-  await setData(this.file, []);
-};
 
 module.exports = Contenedor;

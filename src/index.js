@@ -9,8 +9,19 @@ const products = require("./routes/products");
 
 app.use("/api/productos", products);
 
+app.use(function (req, res, next) {
+  res.status(404).send({
+    error: -1,
+    descripcion: `Ruta ${req.url}, metodo ${req.method} no autorizada`,
+  });
+});
+
 app.get("/", (req, res) => {
-  res.send("Bienvenido a la API de productos");
+  if (req.query.admin === "admin") {
+    res.send("Bienvenido a la API de productos como admin");
+  } else {
+    res.send("Bienvenido a la API de productos");
+  }
 });
 
 app.listen(port, () => {
