@@ -1,0 +1,23 @@
+{
+  "name": "ecommerce-backend",
+  "version": "1.0.0",
+  "description": "\"Ecommerce Backend Diego Estela\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiegoEstela/EcommerceBackend.git"
+  },
+  "author": "Diego Estela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiegoEstela/EcommerceBackend/issues"
+  },
+  "homepage": "https://github.com/DiegoEstela/EcommerceBackend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
