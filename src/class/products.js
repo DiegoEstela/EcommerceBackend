@@ -20,6 +20,12 @@ const obtData = async (file) => {
   }
 };
 
+const borrarId = (data, id) => {
+  return data.find((item) => item.id === id);
+};
+
+//
+
 const today = new Date(Date.now());
 
 class Contenedor {
@@ -70,10 +76,9 @@ class Contenedor {
 
 deleteById = async (id) => {
   let data = await obtData(this.file);
-  if (borrarId(data, id)) {
-    const newData = data.filter((item) => item.id !== id);
-    await setData(this.file, newData);
-    console.log("se elimino correctamente");
+  if (data) {
+    let newData = await data.filter((item) => item.id !== id);
+    await setData(this.file, [newData]);
   } else {
     throw new Error(`no existe el id ${id}`);
   }

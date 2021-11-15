@@ -4,7 +4,9 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 const products = require("./routes/products");
+
 app.use("/api/productos", products);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

@@ -4,22 +4,23 @@ const { Router } = express;
 const router = new Router();
 
 const Contenedor = require("../class/products");
-const product = new Contenedor();
-
-router.get("/:id", async (req, res) => {
-  res.send(await product.getById(req.params.id));
-});
+const product = new Contenedor("./products.txt");
 
 router.get("/", async (req, res) => {
   let data = await product.getAll();
-  console.log(data);
+  res.send(data);
+});
 
+router.get("/:id", async (req, res) => {
+  let id = parseInt(req.params.id);
+  let data = await product.getById(id);
   res.send(data);
 });
 
 router.post("/", async (req, res) => {
-  let data = await product.getAll();
-  console.log(data);
+  let data = await product.save(req.body);
+  console.log(req.body);
+  res.send(data);
 });
 
 router.put("/:id", async (req, res) => {
@@ -33,11 +34,8 @@ router.put("/:id", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-  if (req.query.admin === "true") {
-    await product.delete(req.params.id);
-    res.send("Producto eliminado con exito");
-  }
-  verificarAutorizacion(res);
+  let id = parseInt(req.params.id);
+  await product.deleteById(id);
 });
 
 module.exports = router;
