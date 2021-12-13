@@ -85,4 +85,4 @@ class ContenedorFirebase {
   async desconectar() {}
 }
 
-module.exports = ContenedorFirebase;
+export default ContenedorFirebase;

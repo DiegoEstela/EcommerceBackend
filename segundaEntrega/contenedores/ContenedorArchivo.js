@@ -1,4 +1,4 @@
-const fs = require("fs");
+import { promises as fs } from "fs";
 import config from "../config.js";
 
 //setear datos
@@ -79,4 +79,4 @@ class ContenedorArchivo {
   };
 }
 
-module.exports = ContenedorArchivo;
+export default ContenedorArchivo;

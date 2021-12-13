@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const config = require("../config");
+import mongoose from "mongoose";
+import config from "../config.js";
 
 await mongoose.connect(config.mongodb.cnxStr, config.mongodb.options);
 
@@ -84,4 +84,4 @@ class ContenedorMongoDb {
   }
 }
 
-module.exports = ContenedorMongoDb;
+export default ContenedorMongoDb;
