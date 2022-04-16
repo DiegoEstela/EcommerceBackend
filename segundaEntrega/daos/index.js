@@ -1,7 +1,7 @@
 let productosDao;
 let carritosDao;
 
-let persis = "firebase";
+let persis = "json";
 
 switch (persis) {
   case "json":
